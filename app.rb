@@ -2,12 +2,17 @@ require_relative 'config/environment'
 
 class App < Sinatra::Base
 
-  get '/food_form' do
+  get '/' do
     erb :food_form
   end
-
-  post '/food' do
-   "My name is #{params[:name]}, and I love #{params[:favorite_food]}"
+  
+  
+  post '/food_form' do
+  @user_task= params[:name]
+  @user_time= params[:TimeDue]
+  @user_class= params[:Class]
+  erb :food_form
+  
+  
   end
-
 end
